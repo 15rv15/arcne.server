@@ -31,7 +31,6 @@ public class GameServer extends WebSocketServer {
 
     @Override
     public void onMessage(WebSocket conn, String message) {
-        // Broadcast incoming message to all connected clients
         for (WebSocket client : clients) {
             client.send(message);
         }
@@ -49,7 +48,7 @@ public class GameServer extends WebSocketServer {
     }
 
     public static void main(String[] args) {
-        int port = 10000; // Change if needed
+        int port = 10000;
         GameServer server = new GameServer(port);
         server.start();
     }
